@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Peso</h1><input id="peso" type="number">
+    <h1>Altura</h1><input id="altura" type="number"> 
+    <br>
+    <br>
+    <button onclick="imc()">Calcular IMC</button>
+
+    <p>IMC: 
+        <span id="imc">
+
+        </span></p>
+    <p>Condição:
+        <span id="con">
+
+        </span>
+    </p>
+    
+    <script type="text/javascript">
+
+function imc(){
+     let peso = parseFloat(document.getElementById("peso").value);
+     let altura = parseFloat(document.getElementById("altura").value);
+
+      console.log('peso:'+peso)
+      console.log('altura:'+altura)
+      let imc = peso/(altura*altura);
+      console.log('imc:'+imc)
+ 
+      document.getElementById('imc').innerHTML = imc;
+
+      let con=''
+      let cor=''
+      
+      if(imc < 19.99 ){
+       con='Abaixo do peso' 
+       cor = 'orange'   
+      } 
+      
+      if(imc > 20 && imc < 24.99 ){
+       con='Seu peso está normal!' 
+       cor = 'green'   
+      }
+      if(imc > 25 && imc < 29.99 ){
+       con='Você está em sobrepeso!' 
+       cor = 'orange' 
+      }
+      if(imc > 30 && imc < 34.99 ){
+       con='Você está em obesidade 1!' 
+       cor = 'red' 
+      }
+      if(imc > 35 && imc < 39.99 ){
+       con='Você está em obesidade 2!' 
+       cor = 'red' 
+      }
+      if(imc > 40 ){
+       con='Você está em obesidade 3!' 
+       cor = 'red' 
+      }
+
+    
+     document.getElementById('con').innerHTML = con;
+     document.getElementById('con').style.color = cor
+    }   
+   
+        </script>
+</body>
+</html>
